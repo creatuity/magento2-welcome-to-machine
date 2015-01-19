@@ -1,0 +1,15 @@
+<div>
+    <h3>Example Usage Implementation Switcher</h3>
+    <ul>
+    <?php foreach($this->getSwitchers() as $switcher): ?>
+        <li class="<?php echo $this->isCurrent($switcher) ? 'active' : ''?>">
+            <?php if ($this->isCurrent($switcher)): ?><strong><?php endif; ?>
+            
+            <a href="<?php echo $this->getSwitchUrl($switcher) ?>"><?php echo $this->getTitle($switcher); ?></a>
+            
+            <?php if ($this->isCurrent($switcher)): ?></strong><?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+

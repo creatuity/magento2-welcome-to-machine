@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    
+    <!-- Albums-->
+    <preference for="Creatuity\WelcomeToMachine\Api\Data\AlbumInterface" type="Creatuity\WelcomeToMachine\Model\Album" />
+    <preference for="Creatuity\WelcomeToMachine\Model\Spi\AlbumResourceInterface" type="Creatuity\WelcomeToMachine\Model\Resource\Album" />
+    <preference for="Creatuity\WelcomeToMachine\Api\Data\AlbumSearchResultInterface" type="Creatuity\WelcomeToMachine\Model\Resource\Album\Collection" />
+    
+    <preference for="Creatuity\WelcomeToMachine\Api\AlbumRepositoryInterface" type="Creatuity\WelcomeToMachine\Api\Data\Album\Repository" />
+    
+    <!-- Tracks-->
+    <preference for="Creatuity\WelcomeToMachine\Api\Data\TrackInterface" type="Creatuity\WelcomeToMachine\Model\Track" />
+    <preference for="Creatuity\WelcomeToMachine\Model\Spi\TrackResourceInterface" type="Creatuity\WelcomeToMachine\Model\Resource\Track" />
+    <preference for="Creatuity\WelcomeToMachine\Api\Data\TrackSearchResultInterface" type="Creatuity\WelcomeToMachine\Model\Resource\Track\Collection" />
+    
+    <preference for="Creatuity\WelcomeToMachine\Api\TrackRepositoryInterface" type="Creatuity\WelcomeToMachine\Api\Data\Track\Repository" />
+
+    <!-- default type of examples  --> 
+    <preference for="Creatuity\WelcomeToMachine\Model\Example\UsageInterface" type="Creatuity\WelcomeToMachine\Model\Example\Usage\ByServices" />
+    
+    <type name="Magento\Framework\Module\Updater\SetupFactory">
+        <arguments>
+            <argument name="resourceTypes" xsi:type="array">
+                <item name="welcome_setup" xsi:type="string">Creatuity\WelcomeToMachine\Model\Resource\Setup</item>
+            </argument>
+        </arguments>
+    </type>
+    
+</config>

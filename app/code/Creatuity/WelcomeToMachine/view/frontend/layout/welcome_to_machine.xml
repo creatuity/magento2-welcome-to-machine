@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Welcome to machine</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="\Creatuity\WelcomeToMachine\Block\Example\Usage\Switcher" name="example_switcher" >
+            </block>
+        </referenceContainer>
+        
+        <referenceContainer name="content">
+            <block class="\Creatuity\WelcomeToMachine\Block\Main" name="welcome_to_machine" >
+            </block>
+        </referenceContainer>
+    </body>
+</page>

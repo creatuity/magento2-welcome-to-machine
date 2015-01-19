@@ -1,0 +1,60 @@
+<h2>Albums released until <?php echo $this->getyear(); ?></h2>
+
+<div>
+    <a href="<?php echo $this->_prevYearUrl(); ?>">Prev year</a>
+        |
+    <a href="<?php echo $this->_nextYearUrl(); ?>">Next year</a>
+</div>        
+
+
+<?php if ($this->hasAlbumsFound()): ?>
+
+<table>
+    
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Tracks</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($this->getAlbums() as $album): ?>
+            <tr>
+                <td><?php echo $album->getTitle();?></td>
+                <td><?php echo $album->getYear();?></td>
+                <td>
+                    <ul>
+                    <?php foreach($album->getTracks() as $track): ?>                        
+                        <li>(#<?php echo $track->getTrackNumber(); ?>) <?php echo $track->getTitle(); ?> <a href="<?php echo $this->_deleteAlbumTrackUrl($album, $track->getTrackNumber()); ?>" title="delete track" >[X]</a></li>
+                    <?php endforeach; ?>
+                    </ul>
+                </td>
+                <td>
+                    <div><a href="<?php echo $this->_negateYearUrl($album);?>">negate year of the album</a></div>
+                    <div><a href="<?php echo $this->_swapTracksUrl($album);?>">swap 1-st and last tracks</a></div>
+                    <div >
+                        <form action="<?php echo $this->_addTrackUrl($album) ?>" method="post">
+                            <input type="text" name="track[title]" />
+                            <button type="submit">Add Track</button>
+                        </form>
+                    </div>
+                </td>
+                
+            </tr>
+        <?php endforeach; ?>
+    </tbody>            
+</table>
+
+<?php else: ?>
+<div>
+    <strong>No albums found</strong>
+</div>
+<?php endif; ?>
+
+    
+
+    
+
+    
